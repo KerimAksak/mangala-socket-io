@@ -8,6 +8,10 @@ const io = require("socket.io")(http);
 
 var gameRooms = []; // Kullanıcıların oluşturmuş oldukları odalar
 
+app.get("/", function (req, res) {
+  res.sendFile(__dirname + "/index.html");
+});
+
 io.of("/game").on("connection", (socket) => {
   socket.emit("welcome", "hello to <namespcaess>");
 
