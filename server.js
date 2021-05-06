@@ -55,7 +55,7 @@ io.of("/game").on("connection", (socket) => {
     console.log(
       `newMsg...: "${username}" kisisinden "${roomKey}" odasindan "${msg}" mesaji yollandi.`
     );
-    socket.broadcast.to(roomKey).emit("newMessage", username, msg); //oda içindeki her user için gönderilir.
+    socket.broadcast.to(roomKey).emit("newMessage", msg); //oda içindeki her user için gönderilir.
   });
 });
 
