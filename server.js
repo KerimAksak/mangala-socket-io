@@ -57,6 +57,12 @@ io.of("/game").on("connection", (socket) => {
     );
     socket.broadcast.to(roomKey).emit("newMessage", msg); //oda içindeki her user için gönderilir.
   });
+
+  // Diğer Kullanıcı İsmini Alma
+  socket.on("sendUserName", (username, roomKey) => {
+    socket.broadcast.to(roomKey).emit("newUserName", username); //oda içindeki her user için gönderilir.
+    console.log(username + ":" + roomKey);
+  });
 });
 
 http.listen(port, () => {
